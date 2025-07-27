@@ -17,7 +17,7 @@ spec:
   spec: 
     containers:
       - name: container-banking
-        image: trickyknight0/Banking-app:latest
+        image: trickyknight0/banking-app:latest
         ports : 
           - containerPort: 8091
 ---

@@ -45,7 +45,7 @@ pipeline {
 
         stage("Build Docker Image") {
             steps {
-                sh "docker build -t trickyknight0/Banking-app:latest ."
+                sh "docker build -t trickyknight0/banking-app:latest ."
             }
         }
 
@@ -53,7 +53,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-pwd', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                     sh "echo $PASS | docker login -u $USER --password-stdin"
-                    sh "docker push trickyknight0/Banking-app:latest"
+                    sh "docker push trickyknight0/banking-app:latest"
                 }
             }
         }
@@ -65,7 +65,7 @@ pipeline {
             steps {
                 script {
                     kubernetesDeploy(
-                        configs: 'deploymentservice.yaml',
+                        configs: 'Deployments.yaml',
                         kubeconfigId: 'k8sconfigpwd'
                     )
                 }

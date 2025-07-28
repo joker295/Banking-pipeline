@@ -65,4 +65,8 @@ pipeline {
                         echo "Deploying to Kubernetes..."
                         kubectl apply -f k8s/
                     '''
-
+                }
+            }
+        }
+    }
+}
